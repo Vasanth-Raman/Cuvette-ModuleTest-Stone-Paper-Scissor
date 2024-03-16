@@ -185,3 +185,24 @@ function  getPcScore(){
     }
      return pcScore;
 }
+
+// to update the score to zero after clicking play again in victory page
+playAgainWin.addEventListener("click", () => {
+    // Reset to 0
+    myScore = 0;
+    pcScore = 0;
+    playerScoreElement.innerText = myScore;
+    pcScoreElement.innerText = pcScore;
+
+    scoreBoard.style.display = "flex";
+    handSelectionSec.style.display = "flex";
+    gameOutcomeSec.style.display = "none";
+    victoryPage.style.display = "none";
+    buttonRules.style.visibility = "visible";
+    buttonNext.style.visibility = "hidden";
+    buttonRulesWin.style.visibility = "hidden";
+
+    // Update local storage
+    updatePlayerScoreLocalStorage();
+    updateComputerScoreLocalStorage();
+});
